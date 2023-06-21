@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "types": [
+            "node",
+            "@wdio/globals/types",
+            "expect-webdriverio",
+            "@wdio/mocha-framework",
+            "webdriverio/async",
+            "mocha"
+        ],
+        "target": "es2022",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "./src/**/*",
+        "./test/*",
+        "node_modules/@wdio/globals/types.d.ts"
+
+    ]
+}
