@@ -1,4 +1,4 @@
-export class PageScalpTrading {
-
-};
-
+// export class PageScalpTrading {
+//
+// };
+//
