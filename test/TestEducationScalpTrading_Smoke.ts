@@ -1,6 +1,7 @@
 import {capitalCom} from "../src/component/CapitalComApp";
 import {SignUp, baseUrl, login} from "../src/data/TestData";
 import {loginForm } from "../src/component/LoginForm";
+import {languageEN} from "../src/component/Languages";
 import {expect} from "chai";
 
 describe ('TC_11.03.06_01 | Education > Menu Item [Scalp Trading]', async function () {
@@ -9,10 +10,15 @@ describe ('TC_11.03.06_01 | Education > Menu Item [Scalp Trading]', async functi
         await browser.url(baseUrl);     
     });
 
+   //  it ('test verification Name of the form “Login“', async function () {
+   //    await capitalCom.clickLoginHeader();
+   //    const textLoginInPopupLogin = await $(loginForm.loginTextInField).getText();
+   //    expect (textLoginInPopupLogin).to.equal(login);             
+   //  });
     it ('test verification Name of the form “Login“', async function () {
-        await capitalCom.clickLoginHeader();
-        const textLoginInPopupLogin = await $(loginForm.loginTextInField).getText();
-        expect (textLoginInPopupLogin).to.equal(login);
+      await capitalCom.clickLoginHeader();
+      const textLoginInPopupLogin = await $(loginForm.loginTextInField).getText();
+      expect (textLoginInPopupLogin).to.equal(login);             
     });
     it ('test verification link “Sign up” in form "Login"', async function () {
        const linkSingUpInLoginPopup = await $(loginForm.linkSingUp).getTagName();
@@ -55,6 +61,8 @@ describe ('TC_11.03.06_01 | Education > Menu Item [Scalp Trading]', async functi
         expect(inputWithAccauntAppleInLoginPopup).to.equal(true);
      });
 
-
-
+     after(async function() {
+      await $(loginForm.buttonCancel).click();
+      await browser.url(baseUrl)
+     })
 });

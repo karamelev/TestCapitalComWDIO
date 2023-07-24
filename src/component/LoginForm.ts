@@ -7,7 +7,8 @@ class LoginForm {
     buttonContinue = '.overlay:not(.hidden) .modal form [type = submit]';
     checkBox = '.overlay:not(.hidden) .modal  input[type = checkbox]';
     inputWithAccauntGoogle = '.overlay:not(.hidden) .modal .socialsLogin__btn--google';
-    inputWithAccauntApple = '.overlay:not(.hidden) .modal .sn-login-ap';
+    inputWithAccauntApple = '.overlay:not(.hidden) .modal .sn-login-ap:not(.hidden)';
     inputWithAccauntFacebook = '.overlay:not(.hidden) .modal .sn-login-fb';
+    buttonCancel = '.overlay:not(.hidden) .modal .l_cancel'
 }
 export const loginForm = new LoginForm();

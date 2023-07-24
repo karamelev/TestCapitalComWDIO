@@ -34,7 +34,11 @@ export const config: Options.Testrunner = {
     connectionRetryCount: 3,
     services: ['chromedriver'],
     framework: 'mocha',
-    reporters: ['spec'],
+    reporters: ['spec',['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: false,
+        disableWebdriverScreenshotsReporting: false,
+    }]],
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000
