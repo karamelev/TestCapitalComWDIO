@@ -1,0 +1,20 @@
+name: TestEducationScalpTrading_Smoke
+on:
+  workflow_dispatch:
+jobs:
+  my_testing:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Check out repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.15.0"  
+      - name: Install Dependencies
+        run: npm install
+       - name: Install Ghrome
+        run: sudo apt-get install google-ghrome-strable
+        - name: npm run wdio
+    
+
