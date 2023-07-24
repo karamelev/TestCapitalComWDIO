@@ -1,20 +1,29 @@
 name: TestEducationScalpTrading_Smoke
 on:
   workflow_dispatch:
+    deployment_target:
+      description: Choose target
+      required: true
+      default:
+        - test
+      type: choice
+      options:
+        - test
+
 jobs:
   my_testing:
     runs-on: ubuntu-latest
     steps:
-     - name: Check out repository
-        uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
+       - name: Check out repository
+         uses: actions/checkout@v3
+       - name: Setup Node
+         uses: actions/setup-node@v1
+         with:
           node-version: '16.15.0"  
-      - name: Install Dependencies
-        run: npm install
-       - name: Install Ghrome
-        run: sudo apt-get install google-ghrome-strable
-        - name: npm run wdio
+       - name: Install Dependencies
+         run: npm install
+       - name: Install Chrome
+         run: sudo apt-get install google-chrome-stable
+       - name: npm run wdio
     
 
