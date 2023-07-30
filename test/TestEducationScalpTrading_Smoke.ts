@@ -1,31 +1,42 @@
 import {capitalCom} from "../src/component/CapitalComApp";
-import {SignUp, baseUrl, login} from "../src/data/TestData";
+import {SignUp, baseUrl} from "../src/data/TestData";
 import {loginForm } from "../src/component/LoginForm";
-import {languageEN} from "../src/component/Languages";
 import {expect} from "chai";
+import { ILanguage } from "../src/models/ILanguage";
+import { languageHelper } from "../src/helpers/LanguageHelper";
 
-describe ('TC_11.03.06_01 | Education > Menu Item [Scalp Trading]', async function () {
+
+describe('TC_11.03.06_01 | Education > Menu Item [Scalp Trading]', async function () {
+   let language: ILanguage; 
+
+   
     before(async function() {
+      language = languageHelper.getLanguage();
+      console.log(language);
         await browser.maximizeWindow();
-        await browser.url(baseUrl);     
+        console.log(baseUrl())
+        await browser.url(baseUrl());    
+      
     });
 
-   //  it ('test verification Name of the form “Login“', async function () {
-   //    await capitalCom.clickLoginHeader();
-   //    const textLoginInPopupLogin = await $(loginForm.loginTextInField).getText();
-   //    expect (textLoginInPopupLogin).to.equal(login);             
-   //  });
-    it ('test verification Name of the form “Login“', async function () {
+    after(async function() {
+      await $(loginForm.buttonCancel).click();
+      await browser.url(baseUrl())
+    });
+
+    it.only('test verification Name of the form “Login“', async function () {
       await capitalCom.clickLoginHeader();
       const textLoginInPopupLogin = await $(loginForm.loginTextInField).getText();
-      expect (textLoginInPopupLogin).to.equal(login);             
+      expect (textLoginInPopupLogin).to.equal(language.dictionary.loginInLoginPopup);             
     });
+
     it ('test verification link “Sign up” in form "Login"', async function () {
        const linkSingUpInLoginPopup = await $(loginForm.linkSingUp).getTagName();
        const textlinkSingUpInLoginPopup = await $(loginForm.linkSingUp).getText();
        expect (linkSingUpInLoginPopup).to.equal('a');
        expect (textlinkSingUpInLoginPopup).to.equal(SignUp);
     });
+    
     it ('test verification Input field “Email address“” in form "Login"', async function () {
         const fieldEmailAddressInLoginPopup = await $(loginForm.fieldEmailAddress).isDisplayed();
         expect(fieldEmailAddressInLoginPopup).to.equal(true);
@@ -61,8 +72,5 @@ describe ('TC_11.03.06_01 | Education > Menu Item [Scalp Trading]', async functi
         expect(inputWithAccauntAppleInLoginPopup).to.equal(true);
      });
 
-     after(async function() {
-      await $(loginForm.buttonCancel).click();
-      await browser.url(baseUrl)
-     })
+    
 });

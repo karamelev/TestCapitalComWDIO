@@ -24,7 +24,7 @@ export const config: Options.Testrunner = {
         browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
         acceptInsecureCerts: true
     }],
-    logLevel: 'info',
+    logLevel: "silent",
 
     bail: 0,
 

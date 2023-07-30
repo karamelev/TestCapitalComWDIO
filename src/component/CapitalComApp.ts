@@ -18,9 +18,9 @@ class CapitalComApp {
         await $(this.loginPopup).waitForDisplayed();
     }
 
-    async clickLanguageEN () {
-        await 
-    }
+    // async clickLanguageEN () {
+    //     await 
+    // }
 
     // async clickTradeHeader () {
     //     await $(this.tradeButtonInHeader).click();
